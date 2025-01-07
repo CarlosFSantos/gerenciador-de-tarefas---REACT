@@ -17,10 +17,26 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
         <li key={task.id} className="flex gap-2">
           <button
             onClick={() => onTaskClick(task.id)}
-            className={`bg-slate-400 w-full text-white p-2 rounded-md text-left ${
+            className={`bg-slate-400 w-full text-white p-2 rounded-md text-left flex items-center ${
               task.isCompleted && "line-through"
             }`}
           >
+            {task.isCompleted && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-check"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            )}
             {task.title}
           </button>
           <Button onClick={() => OnSeeDetails(task)}>
