@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
+import Title from "../componets/Title";
 
 function TaskPage() {
   const [searchParams] = useSearchParams();
@@ -28,9 +29,7 @@ function TaskPage() {
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          <h1 className="text-3xl text-slate-100 font-bold text-center">
-            Detalhes da Tarefa
-          </h1>
+          <Title>Detalhes da Tarefa</Title>
         </div>
 
         <div className="bg-slate-400 rounded-md p-4">

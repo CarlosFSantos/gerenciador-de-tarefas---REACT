@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate();
@@ -22,10 +23,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           >
             {task.title}
           </button>
-          <button
-            onClick={() => OnSeeDetails(task)}
-            className="bg-slate-400 rounded-md p-2 text-white"
-          >
+          <Button onClick={() => OnSeeDetails(task)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -40,11 +38,8 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
             >
               <path d="m9 18 6-6-6-6" />
             </svg>
-          </button>
-          <button
-            onClick={() => onDeleteTaskClick(task.id)}
-            className="bg-slate-400 rounded-md p-2 text-white"
-          >
+          </Button>
+          <Button onClick={() => onDeleteTaskClick(task.id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -61,7 +56,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
               <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
               <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
             </svg>
-          </button>
+          </Button>
         </li>
       ))}
     </ul>
