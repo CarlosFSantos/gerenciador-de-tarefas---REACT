@@ -1,4 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
+  const navigate = useNavigate();
+
+  function OnSeeDetails(task) {
+    const query = new URLSearchParams();
+    query.set("title", task.title);
+    query.set("description", task.description);
+    navigate(`/task?${query.toString()}`);
+  }
+
   return (
     <ul className="space-y-4 bg-slate-200 p-6 shadow rounded-md">
       {tasks.map((task) => (
@@ -11,7 +22,10 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           >
             {task.title}
           </button>
-          <button className="bg-slate-400 rounded-md p-2 text-white">
+          <button
+            onClick={() => OnSeeDetails(task)}
+            className="bg-slate-400 rounded-md p-2 text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
